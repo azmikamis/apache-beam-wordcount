@@ -22,7 +22,7 @@ def run(argv=None):
             | beam.FlatMap(lambda x: re.findall(r'[A-Za-z\']+', x)) # Find all word matches
             | beam.Map(lambda x: (x, 1))                            # Create tuple (word,1)
             | beam.CombinePerKey(sum)                               # Reduce by key i.e. the word
-            | WriteToText(known_args.output)
+            | WriteToText(known_args.output, file_name_suffix='.txt')
         )
 
 if __name__ == '__main__':
