@@ -12,7 +12,7 @@ def run(argv=None):
                         help='Input file to process.')
     parser.add_argument('--output',
                         dest='output',
-                        default='output.txt',
+                        default='output',
                         help='Output file to write results to.')
     known_args, pipeline_args = parser.parse_known_args(argv)
     with beam.Pipeline() as p:
